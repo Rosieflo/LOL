@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+    <style>
+        *{margin: 0px; padding: 0px;}
+        ol,ul,li{list-style: none;}
+        a{
+            color: #333;
+            text-decoration: none;
+        }
+        body{
+            font-family: "맑은 고딕", arial, sans-serif;
+            font-size: 12px;
+            color: #333;
+        }
+        
+        header{
+            width: 100%;
+            height: 80px;
+            /* position: fixed;
+                top: 0px; */
+            position: sticky;
+                top:0px;
+            background: #000;
+            z-index: 1000;
+        }
+        
+        /* 상단 네비영역 */
+        .gnb{
+            width: 1280px;
+            height: 80px;
+            margin: 0px auto;
+            background: #000;
+            position: relative;
+        }
+
+        /* 상단 로고 */
+        .gnb > h1 > a > img{
+            width: 54px;
+            height: 54px;
+            position: absolute;
+                top: 12px;             
+        }
+        .gnb > ul{
+            display: flex;
+            justify-content: left;
+        }
+        .gnb > ul > li{margin-top: 26px;}
+        .gnb > ul > li:first-child{
+            margin-left: 110px;
+        }
+        .gnb > ul > li > a{
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            margin-right: 60px;
+        }
+
+        /* 로그인, 회원가입 영역 */
+        .gnb > ul > li:nth-child(6) > a{
+            position: absolute;
+                right: 160px;
+                bottom: 32px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            margin-left: 64px;
+            margin-right: 0px;
+        }
+        .gnb > ul > li:nth-child(6) > a:hover{
+            border-bottom: 1px solid #fff;
+        }
+        .gnb > ul > li:last-child > a{
+            position: absolute;
+                right: 0px;
+                bottom: 15px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            background-color: #0bc4e2;
+            padding: 16px 24px;
+            border-radius: 4px;
+            margin-right: 0px;
+        }
+
+
+
+        main > article{height: 800px;}
+        main > article:first-child{
+            position: relative;
+            height: 960px;
+        }
+        /* 컨텐츠 로고 */
+        main > article > img:first-child{
+            position: absolute;
+                top: 120px;
+                left: 580px;
+            width: 760px; /* 40%로 하면 사이즈 좋음 */
+            z-index: 10;
+        }
+        /* 상단 컨텐츠 텍스트 */
+        main > article > p{
+            position: absolute;
+                left: 757px;
+                bottom: 264px;
+            color: #fff;
+            font-size: 22px;
+            font-weight: bold;
+            z-index: 10;
+        }
+        /* 게임 다운받기 버튼 */
+        .gdown{
+            position: absolute;
+                left: 808px;
+                bottom: 364px;
+            z-index: 10;
+        }
+        /* 모바일 다운 */
+        .apps{
+            position: absolute;
+                left: 750px;
+                bottom: 160px;
+            width: 190px;
+            z-index: 10;
+        }
+        .googles{
+            position: absolute;
+                right: 750px;
+                bottom: 160px;
+            width: 210px;
+            z-index: 10;
+        }
+        
+        main > article > .t_bg{
+            position: absolute;
+            width: 100%;
+            height: 960px;
+            background: rgb(0, 0, 0, 0.5);
+        }
+        main > article > img:last-child{
+            width: 100%;
+        }
+
+
+
+        /* 리그 오브 레전드란? */
+        .about{
+            position: relative;
+            width: 100%;
+            height: 852px;
+            /* background: #fff; */
+        }
+        .video_box{
+            margin: 0px auto;
+            width: 889px;
+            height: 442px;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 14px 14px 30px 4px rgba(0, 0, 0, 0.6);
+            margin-top: 300px;
+        }
+        .about > img{
+            position:absolute;
+            width: 100%;
+        }
+        .about_01{
+            position: absolute;
+                left: 312px;
+            width: 1280px;
+            height: 860px;
+            z-index: 10;
+        }
+        .about_01 > p:first-child{
+            position: absolute;
+                top: 70px;
+                left: 470px;
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+        }
+        .about_01 > p:nth-child(2){
+            position: absolute;
+                top: 150px;
+                left: 320px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .video_box > video{
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 18px;
+        }
+
+
+
+        /* e-스포츠 */
+        .e-sports{
+            width: 100%;
+            height: 830px;
+            background-color: #061017;
+        }
+        .e_01{
+            position: relative;
+            width: 1280px;
+            height: 826px;
+            margin: 0px auto;
+            /* background-color: #0bc4e2; */
+        }
+        .e_01 > p{
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            padding-top: 60px;
+        }
+        .e_01 > .e_02 > a > img{
+            margin-top: 60px;
+            border-radius: 14px;
+        }
+        .e_02 > a > p{
+            position: absolute;
+                left: 46px;
+                bottom: 120px;
+            color: #fff;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        /* e-스포츠 오른쪽 첫번째 이미지 */
+        .e_03{
+            position: absolute;
+                top: 174px;
+                right: 0px;
+        }
+        .e_03 > a > p{
+            position: absolute;
+                left: 28px;
+                bottom: 36px;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .e_03 > a > img{
+            border-radius: 14px;
+        }
+
+        /* e-스포츠 오른쪽 두번째 이미지 */
+        .e_04{
+            position: absolute;
+                top: 319px;
+                right: 0px;
+        }
+        .e_04 > a > p{
+            position: absolute;
+                left: 28px;
+                bottom: 36px;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .e_04 > a > img{
+            border-radius: 14px;
+        }
+
+        /* e-스포츠 오른쪽 세번째 이미지 */
+        .e_05{
+            position: absolute;
+                bottom:227px;
+                right: 0px;
+        }
+        .e_05 > a > p{
+            position: absolute;
+                left: 28px;
+                bottom: 50px;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .e_05 > a > img{
+            border-radius: 14px;
+        }
+
+        /* e-스포츠 오른쪽 네번째 이미지 */
+        .e_06{
+            position: absolute;
+                bottom:82px;
+                right: 0px;
+        }
+        .e_06 > a > p{
+            position: absolute;
+                left: 28px;
+                bottom: 36px;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .e_06 > a > img{
+            border-radius: 14px;
+        }
+
+
+
+        /* 플레이 모드 */
+        .playmode{
+            width: 100%;
+            height: 655px;
+        }
+        .play_01{
+            position: relative;
+            width: 1280px;
+            height: 655px;
+            margin: 0px auto;
+            /* background-color: #0bc4e2; */
+        }
+        .play_01 > p{
+            font-size: 40px;
+            font-weight: bold;
+            padding-top: 60px;
+        }
+
+        /* 소환사의 협곡 */
+        .play_02{
+            position: relative;
+            width: 326px;
+            height: 540px;
+            /* after선택자로 border-right에 선주면됨 */
+        }
+        .play_02 > img{
+            position: absolute;
+                left: 50px;
+            width: 200px;
+            padding-top: 80px;
+        }
+        .text_box_01{
+            position: absolute;
+                left: 0px;
+                bottom: 80px;
+        }
+        .play_02 > .text_box_01 > p:first-child{
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .play_02 > .text_box_01 > p:nth-child(2){
+            margin-top:6px;
+            text-align: center;
+            color: #c28f2c;
+            font-size: 26px;
+            font-weight: bold;
+        }
+        .play_02 > .text_box_01 > p:nth-child(3){
+            margin-top: 12px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 21px;
+        }
+        
+        /* 칼바람 나락 */
+        .play_03{
+            position: absolute;
+                left: 340px;
+                bottom: 0px;
+            width: 326px;
+            height: 540px;
+        }
+        .play_03 > img{
+            position: absolute;
+                left: 66px;
+            width: 200px;
+            padding-top: 80px;
+        }
+        .text_box_02{
+            position: absolute;
+                left: 16px;
+                bottom: 80px;
+        }
+        .play_03 > .text_box_02 > p:first-child{
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .play_03 > .text_box_02 > p:nth-child(2){
+            margin-top:6px;
+            text-align: center;
+            color: #c28f2c;
+            font-size: 26px;
+            font-weight: bold;
+        }
+        .play_03 > .text_box_02 > p:nth-child(3){
+            margin-top: 12px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 21px;
+        }
+
+        /* 전략적 팀 전투 */
+        .play_04{
+            position: absolute;
+                right: 270px;
+                bottom: 0px;
+            width: 326px;
+            height: 540px;
+        }
+        .play_04 > img{
+            position: absolute;
+                left: 66px;
+            width: 200px;
+            padding-top: 80px;
+        }
+        .text_box_03{
+            position: absolute;
+                left:48px;
+                bottom: 80px;
+        }
+        .play_04 > .text_box_03 > p:first-child{
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .play_04 > .text_box_03 > p:nth-child(2){
+            margin-top:6px;
+            text-align: center;
+            color: #c28f2c;
+            font-size: 26px;
+            font-weight: bold;
+        }
+        .play_04 > .text_box_03 > p:nth-child(3){
+            margin-top: 12px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 21px;
+        }
+
+        /* 기타 */
+        .play_05{
+            position: absolute;
+                right: 0px;
+                bottom: 0px;
+            width: 326px;
+            height: 540px;
+        }
+        .play_05 > img{
+            position: absolute;
+                right:11px;
+            width: 200px;
+            padding-top: 80px;
+        }
+        .text_box_04{
+            position: absolute;
+                right: 10px;
+                bottom: 80px;
+        }
+        .play_05 > .text_box_04 > p:first-child{
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .play_05 > .text_box_04 > p:nth-child(2){
+            margin-top:6px;
+            text-align: center;
+            color: #c28f2c;
+            font-size: 26px;
+            font-weight: bold;
+        }
+        .play_05 > .text_box_04 > p:nth-child(3){
+            margin-top: 12px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 21px;
+        }
+
+
+
+        /* 챔피언 알아보기 */
+        .champion{
+            width: 100%;
+            height: 760px;
+            background-color: #f7f7f7;
+        }
+        .champ_01{
+            position: relative;
+            width: 1280px;
+            height: 760px;
+            margin: 0px auto;
+            /* background-color: #0bc4e2; */
+        }
+        .champ_01 > p:first-child{
+            font-size: 40px;
+            font-weight: bold;
+            padding-top: 60px;
+        }
+        .champ_01 > p:nth-child(2){
+            font-size: 16px;
+            font-weight: bold;
+            padding-top:18px;
+        }
+
+        /* 탑 */
+        .champ_02{
+            position: absolute;
+                
+        }
+        .champ_02 > a > p{
+            position:absolute;
+                left: 24px;
+                bottom: 24px;
+            color: #fff;
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .champ_02 > a > img{
+            margin-top: 60px;
+            border-radius: 14px;
+        }
+
+        /* 미드 */
+        .champ_03{
+            position: absolute;
+                left: 258px;
+        }
+        .champ_03 > a > p{
+            position:absolute;
+                left: 24px;
+                bottom: 24px;
+            color: #fff;
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .champ_03 > a > img{
+            margin-top: 60px;
+            border-radius: 14px;
+        }
+
+        /* 원딜 */
+        .champ_04{
+            position: absolute;
+                left: 517px;
+        }
+        .champ_04 > a > p{
+            position:absolute;
+                left: 24px;
+                bottom: 24px;
+            color: #fff;
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .champ_04 > a > img{
+            margin-top: 60px;
+            border-radius: 14px;
+        }
+
+        /* 서포터 */
+        .champ_05{
+            position: absolute;
+                right: 258px;
+        }
+        .champ_05 > a > p{
+            position:absolute;
+                left: 24px;
+                bottom: 24px;
+            color: #fff;
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .champ_05 > a > img{
+            margin-top: 60px;
+            border-radius: 14px;
+        }
+
+        /* 정글 */
+        .champ_06{
+            position: absolute;
+                right: 0px;
+        }
+        .champ_06 > a > p{
+            position:absolute;
+                left: 24px;
+                bottom: 24px;
+            color: #fff;
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .champ_06 > a > img{
+            margin-top: 60px;
+            border-radius: 14px;
+        }
+
+
+
+        /* 스킬 사용하기 */
+        .skill{
+            width: 100%;
+            height: 760px;
+            background-color: #fff;
+        }
+        .skill_01{
+            position: relative;
+            width: 1280px;
+            height: 760px;
+            margin: 0px auto;
+            /* background-color: #0bc4e2; */
+        }
+        .skill_01 > p:first-child{
+            font-size: 40px;
+            font-weight: bold;
+            padding-top: 60px;
+        }
+        .skill_01 > p:nth-child(2){
+            font-size: 16px;
+            font-weight: bold;
+            padding-top:18px;
+        }
+        .skill_01 > p:nth-child(3){
+            position: absolute;
+                left: 494px;
+                top: 360px;
+            font-size: 14px;
+            font-weight: bold;
+            padding-top:18px;
+            text-align: center;
+            line-height: 21px;
+        }
+        .line{
+            position: relative;
+                bottom: -280px;
+            width: 100%;
+            height: 1px;
+            background-color: #c28f2c;
+            z-index: 20;
+        }
+        .skill > ul{
+            position: relative;
+                left: -760px;
+                bottom: -273px;
+        }
+        .skill > ul > li{            
+            float: right;
+            width: 15px;
+            height: 15px;
+            margin-left: 140px;
+            border-radius: 50%;
+            background-color: #c28f2c;
+        }
+        .skill_01 > img{
+            position: absolute;
+                left: 200px;
+                bottom: 80px;
+        }
+
+
+
+        /* 푸터 */
+        footer{
+            position: relative;
+            height: 460px;
+            background-color: #1f1f1f;
+        }
+        .f_lnb{
+            position: absolute;
+                top: 50px;
+                left: 660px;
+            display: flex;
+        }
+        .f_lnb > li > a{
+            color: #bbb;
+            font-weight: bold;
+            font-size: 16px;
+            margin-right: 30px;
+        }
+        .f_lnb > li:last-child{
+            margin-right: 0px;
+        }
+        footer > img{
+            position: absolute;
+                left: 880px;
+                top: 110px;
+            width: 170px;
+        }
+        footer > p{
+            position: absolute;
+                left: 770px;
+            text-align: center;
+            color: #bbb;
+            font-weight: bold;
+            font-size: 12px;
+            line-height: 22px;
+            padding-top: 200px;
+        }
+        .f_img > img{
+            position: absolute;
+                left: 646px;
+                bottom: 40px;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+           let n = $('.gnb > ul > li').index();
+           console.log(n); // 숫자 0이 나와야함 
+
+           let gnb = $('.gnb > ul > li');
+
+           gnb.click(function(){
+
+               n = $(this).index();
+               console.log(n); // 숫자 0,1,2,3,4가 나와야함
+
+                // 인덱스 번호에 해당하는 section을 화면 위로 올린다.
+               $('html, body').animate({scrollTop:$('main section').eq(n).offset().top},500);
+               
+                // 화면 깜빡거리지 않게
+               return false; 
+
+           });
+        });
+    </script>
+</head>
+
+<body>
+    <!-- 상단헤더영역 -->
+    <header>
+
+        <nav class="gnb">
+            <h1>
+                <a href="index.html" title="상단로고">
+                    <img src="./img/lol.png" alt="상단로고">
+                </a>
+            </h1>
+
+            <ul>
+                <li><a href="#" title="">게임 소개</a></li>
+                <li><a href="#" title="">E스포츠</a></li>
+                <li><a href="#" title="">플레이 모드</a></li>
+                <li><a href="#" title="">챔피언 알아보기</a></li>
+                <li><a href="#" title="">스킬 사용하기</a></li>
+
+                <li><a href="#" title="">로그인</a></li>
+                <li><a href="#" title="">회원가입</a></li>
+            </ul>
+
+    </header>
+
+    <!-- 컨텐츠 영역 -->
+    <main>
+        <article>
+            <img src="./img/logo01.png" alt="본문 로고">
+            <p>모바일과 PC에서 무료로 플레이하세요</p>
+            <a href="https://signup.kr.riotgames.com/" title="게임 다운받기"><img src="./img/download_btn.png" alt="게임 다운받기" class="gdown"></a>
+            <a href="https://apps.apple.com/app/id1480616990?referrer=singular_click_id%3D78977c17-3c32-45cf-b36b-32615147ea69" title="앱스토어 다운"><img src="./img/app01.png" alt="앱스토어 다운" class="apps"></a>
+            <a href="https://play.google.com/store/apps/details?id=com.riotgames.league.wildrift&referrer=singular_click_id%3D87933da9-111a-4112-8a51-b7ce4e3389be" title="구글스토어 다운"><img src="./img/app02.png" alt="구글스토어 다운" class="googles"></a>
+            <div class="t_bg"></div>
+            <img src="./img/bg09-1.jpg" alt="상단 이미지">
+        </article>
+
+        <!-- 리그오브레전드란 -->
+        <section class="about">
+            <div class="about_01">
+                <p>리그오브레전드란?</p>
+                <p>리그 오브 레전드는 5명의 강력한 챔피언으로 구성된 양 팀이 서로의 기지를 파괴하기 위해<br>
+                치열한 사투를 벌이는 전략 게임입니다. 140여 명의 챔피언 중 하나를 선택해<br>
+                화려한 플레이를 펼치며 적을 처치하고 포탑을 파괴해 승리를 쟁취하세요.</p>
+                <div class="video_box">
+                    <video muted autoplay loop='infinite'>
+                        <source src="./img/lol.webm" type="video/webm">
+                    </video>
+                </div>
+            </div>
+            <img src="./img/bg10.png" alt="배경이미지">
+        </section>
+
+        <!-- e스포츠 -->
+        <section class="e-sports">
+            <div class="e_01">
+                <p>E - 스포츠</p>
+
+                <div class="e_02">
+                    <a href="#" title="EDG 우승">
+                        <p>2021 월드 챔피언십<br>EDG의 우승을 축하합니다!</p>
+                        <img src="./img/e-sports07-1.png" alt="e-스포츠">
+                    </a>
+                </div>
+
+                <div class="e_03">
+                    <a href="#" title="">
+                        <p>2022 월드 챔피언십<br>개최지 안내</p>
+                        <img src="./img/e-sports09-1.png" alt="e-스포츠">
+                    </a>
+                </div>
+
+                <div class="e_04">
+                    <a href="#" title="">
+                        <p>2021 미드 시즌<br>인비테이셔널 공식 규정집</p>
+                        <img src="./img/e-sports03-1.png" alt="e-스포츠">
+                    </a>
+                </div>
+
+                <div class="e_05">
+                    <a href="#" title="">
+                        <p>2021 월드 챔피언십 규정집</p>
+                        <img src="./img/e-sports08-1.png" alt="e-스포츠">
+                    </a>
+                </div>
+
+                <div class="e_06">
+                    <a href="#" title="">
+                        <p>통계로 보는<br>2021 월드 챔피언십</p>
+                        <img src="./img/e-sports01-1.png" alt="e-스포츠">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 플레이 모드 -->
+        <section class="playmode">
+            <div class="play_01">
+                <p>플레이 모드</p>
+
+                <div class="play_02">
+                    <img src="./img/mode03.png" alt="플레이 모드">
+                    <div class="text_box_01">
+                        <p>5대 5</p>
+                        <p>소환사의 협곡</p>
+                        <p>LOL의 대표적인 전장인 소환사의 협곡은<br>
+                            각 다섯명의 챔피언응로 두 팀을 구성하여,<br>
+                            공격로와 정글을 오가며 교전을 펼치게 됩니다.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="play_03">
+                    <img src="./img/mode02.png" alt="플레이 모드">
+                    <div class="text_box_02">
+                        <p>5대 5</p>
+                        <p>칼바람 나락</p>
+                        <p>칼바람 나락은 중립 지역이 없고<br>
+                            공격로가 단 하나이기에 게임 시작부터 끝까지<br>
+                            한타와 대치의 중요도가 매우 높은 맵입니다.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="play_04">
+                    <img src="./img/mode04.png" alt="플레이 모드">
+                    <div class="text_box_03">
+                        <p>난투전</p>
+                        <p>전략적 팀 전투</p>
+                        <p>오토배틀러 장르인 전략적 팀 전투는<br>
+                            단계별로 챔피언을 구매해서 늘려가며<br>
+                            상대 챔피언들과 싸우는 모드입니다.                            
+                        </p>
+                    </div>
+                </div>
+
+                <div class="play_05">
+                    <img src="./img/mode01.png" alt="플레이 모드">
+                    <div class="text_box_04">
+                        <p>기타</p>
+                        <p>이벤트성 모드</p>
+                        <p>기타 이벤트성 모드로는<br>
+                            우르프, 초월, 초토화 봇 모드,<br>
+                            궁극기 주문서 모드가 있습니다.                                                       
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        
+        <!-- 챔피언 알아보기 -->
+        <section class="champion">
+            <div class="champ_01">
+                <p>챔피언 알아보기</p>
+                <p>140여 명의 챔피언 중 자신의 플레이 스타일에 어울리는 챔피언을 찾아보세요.<br>
+                    한 명의 챔피언을 완벽히 익히거나 모든 챔피언을 사용해 볼 수도 있습니다.
+                    </p>
+
+                    <div class="champ_02">
+                        <a href="#" title="탑">
+                            <p>탑</p>
+                            <img src="./img/Riven-1.png" alt="챔피언 알아보기">
+                        </a>
+                    </div>
+
+                    <div class="champ_03">
+                        <a href="#" title="미드">
+                            <p>미드</p>
+                            <img src="./img/Akshan-1.png" alt="챔피언 알아보기">
+                        </a>
+                    </div>
+
+                    <div class="champ_04">
+                        <a href="#" title="원딜">
+                            <p>원딜</p>
+                            <img src="./img/Samira-1.png" alt="챔피언 알아보기">
+                        </a>
+                    </div>
+
+                    <div class="champ_05">
+                        <a href="#" title="서포터">
+                            <p>서포터</p>
+                            <img src="./img/Lux-1.png" alt="챔피언 알아보기">
+                        </a>
+                    </div>
+
+                    <div class="champ_06">
+                        <a href="#" title="정글">
+                            <p>정글</p>
+                            <img src="./img/Hecarim-1.png" alt="챔피언 알아보기">
+                        </a>
+                    </div>
+            </div>
+        </section>
+
+        <!-- 스킬 사용하기 -->
+        <section class="skill">
+
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+
+            <div class="line"></div>
+
+            <div class="skill_01">
+                <p>스킬 사용하기</p>
+                <p>챔피언은 5개의 주요 스킬과 2개의 소환사 주문을 사용할 수 있으며, 한 번에 최대<br>
+                    7개의 아이템을 소지할 수 있습니다. 챔피언에게 가장 어울리는 스킬 순서,<br>
+                    소환사 주문, 아이템 빌드를 이용해 아군에게 도움이 되는 팀원이 되어 보세요.
+                </p>
+                <p>대부분의 챔피언은 기본 지속 효과, 3개의 기본 스킬,<br>
+                    궁극기로 이루어진 5개의 고유 스킬을 가지고 있습니다.<br>
+                    스킬 사용 기본 키는 Q, W, E, R입니다.
+                </p>
+
+                <img src="./img/skill00.png" alt="스킬 사용하기">
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+        <ul class="f_lnb">
+            <li><a>고객지원</a></li>
+            <li><a>학부모 전용 고객센터</a></li>
+            <li><a>PC방</a></li>
+            <li><a>라이엇 모바일 컴패니언 앱 다운로드</a></li>
+        </ul>
+
+        <img src="./img/riot-games-logo-1.png" alt="">
+
+        <p>라이엇게임즈코리아 유한회사<br>
+            서울특별시 강남구 테헤란로 521 30층(삼성동, 파르나스타워)<br>
+            대표자 : 조혁진 대표전화 : 02-3454-1560 FAX : 02-3454-1565<br>
+            사업자등록번호 : 120-87-68488 통신판매사업신고 : 2011-서울강남-02718
+        </p>
+
+        <div class="f_img">
+            <img src="./img/footer.png" alt="">
+        </div>
+    </footer>
+    
+</body>
+</html>
